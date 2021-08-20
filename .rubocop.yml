@@ -1,0 +1,55 @@
+require:
+  - rubocop-rails
+
+AllCops:
+  NewCops: disable
+  TargetRubyVersion: 2.7.2
+  SuggestExtensions: false
+  Exclude:
+    - db/**/*
+    - vendor/**/*
+    - config/**/*
+    - lib/**/*
+    - app/channels/**/*
+    - test/**/*
+    - config/environments/*
+    - bin/**/*
+
+Rails:
+  Enabled: true
+
+Layout/EndOfLine:
+  Enabled: false
+
+Layout/LineLength:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Naming/FileName:
+    Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Metrics/ClassLength:
+  Max: 300
+
+Metrics/ModuleLength:
+  Max: 200
+
+Metrics/AbcSize:
+  Max: 100
+
+Metrics/BlockLength:
+  Max: 500
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false

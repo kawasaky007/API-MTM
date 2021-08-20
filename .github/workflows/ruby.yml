@@ -1,0 +1,32 @@
+name: Ruby
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby-version: ['2.7']
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@473e4d8fe5dd94ee328fdfca9f8c9c7afc9dae5e
+      with:
+        ruby-version: ${{ matrix.ruby-version }}
+        bundler-cache: true
+
+    - name: Run rubocop
+      run: bundle exec rubocop
+
+    - name: Update codebase
+      uses: githubocto/repo-visualizer@0.3.0
+      with:
+        output_file: "codebase.svg"
+        excluded_paths: "test,log,tmp,vendor"
